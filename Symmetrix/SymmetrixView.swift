@@ -13,7 +13,8 @@ class SymmetrixView: UIView {
 
     var ctx: CGContext? = nil
     var lastPoint = CGPointZero
-    let lineWidth: CGFloat = 2.0
+    let lineWidth: CGFloat = 1.0
+    let turns = 12
     
     func createAndInitialiseContext() {
         if ctx == nil {
@@ -45,15 +46,31 @@ class SymmetrixView: UIView {
     
     func drawLine(startPoint: CGPoint, endPoint: CGPoint) {
         createAndInitialiseContext()
-        CGContextMoveToPoint(ctx, startPoint.x, startPoint.y)
-        CGContextAddLineToPoint(ctx, endPoint.x, endPoint.y)
-        CGContextStrokePath(ctx)
-        
-        let origin = CGPoint(x: min(startPoint.x, endPoint.x), y: min(startPoint.y, endPoint.y))
-        let size = CGSize(width:abs(startPoint.x - endPoint.x), height:abs(startPoint.y - endPoint.y))
         let inset = ceil(lineWidth * 0.5)
-        let dirtyRect = CGRect(origin:origin, size:size).insetBy(dx: -inset, dy: -inset)
-        setNeedsDisplayInRect(dirtyRect)
+        let centre = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        
+        for t in 0 ... turns {
+            let angle = CGFloat(t) * CGFloat(M_PI * 2.0) / CGFloat(turns)
+            let rotation = CGAffineTransformMakeRotation(angle)
+            
+            var m = CGAffineTransformMakeTranslation(centre.x, centre.y)
+            m = CGAffineTransformConcat(rotation, m)
+            m = CGAffineTransformTranslate(m, -centre.x, -centre.y)
+            
+            let start = CGPointApplyAffineTransform(startPoint, m)
+            let end = CGPointApplyAffineTransform(endPoint, m)
+            
+            CGContextMoveToPoint(ctx, start.x, start.y)
+            CGContextAddLineToPoint(ctx, end.x, end.y)
+            CGContextStrokePath(ctx)
+            
+            let origin = CGPoint(x: min(start.x, end.x), y: min(start.y, end.y))
+            let size = CGSize(width:abs(start.x - end.x), height:abs(start.y - end.y))
+            
+            let dirtyRect = CGRect(origin:origin, size:size).insetBy(dx: -inset, dy: -inset)
+            setNeedsDisplayInRect(dirtyRect)
+        }
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -72,8 +89,8 @@ class SymmetrixView: UIView {
     override func drawRect(rect: CGRect) {
         if ctx != nil {
             let viewCtx = UIGraphicsGetCurrentContext()
-            CGContextSetBlendMode(viewCtx, CGBlendMode.Copy)
-            CGContextSetInterpolationQuality(viewCtx, CGInterpolationQuality.None)
+            CGContextSetBlendMode(viewCtx, .Copy)
+            CGContextSetInterpolationQuality(viewCtx, .None)
             guard let image = CGBitmapContextCreateImage(ctx) else { return }
             CGContextDrawImage(viewCtx, self.bounds, image)
         }
