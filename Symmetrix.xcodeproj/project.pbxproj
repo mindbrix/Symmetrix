@@ -14,6 +14,7 @@
 		E93FAD841DC7C2F90008B3F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93FAD821DC7C2F90008B3F5 /* LaunchScreen.storyboard */; };
 		E93FAD8F1DC7C2F90008B3F5 /* SymmetrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93FAD8E1DC7C2F90008B3F5 /* SymmetrixTests.swift */; };
 		E93FAD9A1DC7C2F90008B3F5 /* SymmetrixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93FAD991DC7C2F90008B3F5 /* SymmetrixUITests.swift */; };
+		E93FADA81DC7C67A0008B3F5 /* SymmetrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93FADA71DC7C67A0008B3F5 /* SymmetrixView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E93FAD951DC7C2F90008B3F5 /* SymmetrixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SymmetrixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93FAD991DC7C2F90008B3F5 /* SymmetrixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymmetrixUITests.swift; sourceTree = "<group>"; };
 		E93FAD9B1DC7C2F90008B3F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E93FADA71DC7C67A0008B3F5 /* SymmetrixView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymmetrixView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				E93FAD791DC7C2F90008B3F5 /* AppDelegate.swift */,
+				E93FADA71DC7C67A0008B3F5 /* SymmetrixView.swift */,
 				E93FAD7B1DC7C2F90008B3F5 /* ViewController.swift */,
 				E93FAD7D1DC7C2F90008B3F5 /* Main.storyboard */,
 				E93FAD801DC7C2F90008B3F5 /* Assets.xcassets */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E93FAD7C1DC7C2F90008B3F5 /* ViewController.swift in Sources */,
+				E93FADA81DC7C67A0008B3F5 /* SymmetrixView.swift in Sources */,
 				E93FAD7A1DC7C2F90008B3F5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
