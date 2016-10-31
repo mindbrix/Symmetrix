@@ -16,6 +16,12 @@ class ViewController: UIViewController {
         self.canvasView!.clear()
     }
     
+    @IBAction func saveButtonTapped(item: UIBarButtonItem) {
+        if let image = self.canvasView!.getImage() {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

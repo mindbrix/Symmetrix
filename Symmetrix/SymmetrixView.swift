@@ -14,7 +14,7 @@ class SymmetrixView: UIView {
     var ctx: CGContext? = nil
     var lastPoint = CGPointZero
     let lineWidth: CGFloat = 1.0
-    let turns = 12
+    let turns = 120
     
     func createAndInitialiseContext() {
         if ctx == nil {
@@ -44,6 +44,14 @@ class SymmetrixView: UIView {
         setNeedsDisplay()
     }
     
+    func getImage() -> UIImage? {
+        if ctx != nil {
+            if let image = CGBitmapContextCreateImage(ctx) {
+                return UIImage(CGImage: image, scale: 1.0, orientation: .Down)
+            }
+        }
+        return nil
+    }
     func drawLine(startPoint: CGPoint, endPoint: CGPoint) {
         createAndInitialiseContext()
         let inset = ceil(lineWidth * 0.5)

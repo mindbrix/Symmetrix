@@ -25,6 +25,12 @@
                                             <action selector="clearButtonTapped:" destination="BYZ-38-t0r" id="oQm-Xo-Orz"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3bh-gF-Rmt"/>
+                                    <barButtonItem systemItem="save" id="CEr-jK-qvj">
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="BYZ-38-t0r" id="65i-ld-d0z"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
