@@ -14,7 +14,7 @@ class SymmetrixView: UIView {
     var ctx: CGContext? = nil
     var lastPoint = CGPointZero
     let lineWidth: CGFloat = 1.0
-    let turns = 120
+    let turns = 20
     
     func createAndInitialiseContext() {
         if ctx == nil {
@@ -24,6 +24,7 @@ class SymmetrixView: UIView {
             CGContextSetLineCap(ctx, CGLineCap.Round)
             CGContextSetLineJoin(ctx, CGLineJoin.Round)
             CGContextScaleCTM(ctx, self.contentScaleFactor, self.contentScaleFactor)
+            CGContextConcatCTM(ctx, CGAffineTransformMake(1, 0, 0, -1, 0, self.bounds.size.height))
             CGContextSetFillColorWithColor(ctx, UIColor.whiteColor().CGColor)
             CGContextFillRect(ctx, self.bounds)
             CGContextSetStrokeColorWithColor(ctx, UIColor.blackColor().CGColor)
@@ -47,7 +48,7 @@ class SymmetrixView: UIView {
     func getImage() -> UIImage? {
         if ctx != nil {
             if let image = CGBitmapContextCreateImage(ctx) {
-                return UIImage(CGImage: image, scale: 1.0, orientation: .Down)
+                return UIImage(CGImage: image)
             }
         }
         return nil
@@ -100,6 +101,7 @@ class SymmetrixView: UIView {
             CGContextSetBlendMode(viewCtx, .Copy)
             CGContextSetInterpolationQuality(viewCtx, .None)
             guard let image = CGBitmapContextCreateImage(ctx) else { return }
+            CGContextConcatCTM(viewCtx, CGAffineTransformMake(1, 0, 0, -1, 0, self.bounds.size.height))
             CGContextDrawImage(viewCtx, self.bounds, image)
         }
     }
