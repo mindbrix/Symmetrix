@@ -16,11 +16,32 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="SymmetrixView" customModule="Symmetrix" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSe-M6-LSF">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Clear" id="9SI-nb-BrR">
+                                        <connections>
+                                            <action selector="clearButtonTapped:" destination="BYZ-38-t0r" id="oQm-Xo-Orz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hSe-M6-LSF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="kI5-Mm-XZU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hSe-M6-LSF" secondAttribute="bottom" id="sye-eV-P1Z"/>
+                            <constraint firstItem="hSe-M6-LSF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vOM-Oz-Gty"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="canvasView" destination="8bC-Xf-vdC" id="eX1-GB-wAZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="418" y="334"/>
         </scene>
     </scenes>
 </document>

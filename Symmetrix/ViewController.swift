@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var canvasView: SymmetrixView?
+    
+    @IBAction func clearButtonTapped(item: UIBarButtonItem) {
+        self.canvasView!.clear()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
