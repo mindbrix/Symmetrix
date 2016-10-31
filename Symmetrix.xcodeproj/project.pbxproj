@@ -196,6 +196,7 @@
 				TargetAttributes = {
 					E93FAD751DC7C2F90008B3F5 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = WUZW9LMF53;
 					};
 					E93FAD891DC7C2F90008B3F5 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -405,10 +406,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Symmetrix/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.mindbrix.Symmetrix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -416,10 +420,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Symmetrix/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.mindbrix.Symmetrix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -488,6 +495,7 @@
 				E93FADA01DC7C2F90008B3F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E93FADA11DC7C2F90008B3F5 /* Build configuration list for PBXNativeTarget "SymmetrixTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +504,7 @@
 				E93FADA31DC7C2F90008B3F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E93FADA41DC7C2F90008B3F5 /* Build configuration list for PBXNativeTarget "SymmetrixUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +513,7 @@
 				E93FADA61DC7C2F90008B3F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
