@@ -11,14 +11,20 @@ import CoreGraphics
 
 class SymmetrixView: UIView {
     
-    var ctx: CGContext? = nil
+    var bitmapCtx: CGContext? = nil
     var lastPoint = CGPoint.zero
     let lineWidth: CGFloat = 1.0
     let turns = 20
     
-    func createAndInitialiseContext() {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         guard let ctx = createBitmapContext() else { return }
-        
+        bitmapCtx = ctx
+        initialiseContext(ctx)
+    }
+    
+    
+    func initialiseContext(_ ctx: CGContext) {
         ctx.setLineWidth(lineWidth)
         ctx.setLineCap(CGLineCap.round)
         ctx.setLineJoin(CGLineJoin.round)
@@ -38,21 +44,20 @@ class SymmetrixView: UIView {
     }
     
     func clear() {
-        createAndInitialiseContext()
+        guard let ctx = bitmapCtx else { return }
         ctx.fill(self.bounds)
         setNeedsDisplay()
     }
     
     func getImage() -> UIImage? {
-        guard let ctx = ctx else { return  nil }
+        guard let ctx = bitmapCtx else { return  nil }
         guard let image = ctx.makeImage() else { return nil }
         
         return UIImage(cgImage: image)
     }
     func drawLine(startPoint: CGPoint, endPoint: CGPoint) {
-        guard let ctx = ctx else { return }
+        guard let ctx = bitmapCtx else { return }
         
-        createAndInitialiseContext()
         let inset = ceil(lineWidth * 0.5)
         let centre = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         
@@ -94,7 +99,7 @@ class SymmetrixView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        guard let ctx = ctx else { return }
+        guard let ctx = bitmapCtx else { return }
         guard let viewCtx = UIGraphicsGetCurrentContext() else { return }
         
         viewCtx.setBlendMode(.copy)
@@ -103,6 +108,4 @@ class SymmetrixView: UIView {
         viewCtx.concatenate(CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: self.bounds.size.height))
         viewCtx.draw(image, in: self.bounds, byTiling: false)
     }
-
-
 }
