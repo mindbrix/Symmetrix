@@ -14,7 +14,7 @@ class SymmetrixView: UIView {
     var bitmapCtx: CGContext? = nil
     var lastPoint = CGPoint.zero
     let lineWidth: CGFloat = 1.0
-    let turns = 4
+    let turns = 20
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -97,13 +97,10 @@ class SymmetrixView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        guard let ctx = bitmapCtx else { return }
-        guard let viewCtx = UIGraphicsGetCurrentContext() else { return }
-        
+        guard let ctx = bitmapCtx, let image = ctx.makeImage(), let viewCtx = UIGraphicsGetCurrentContext() else { return }
         viewCtx.setBlendMode(.copy)
         viewCtx.interpolationQuality = .none
-        guard let image = ctx.makeImage() else { return }
         viewCtx.concatenate(CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: self.bounds.size.height))
-        viewCtx.draw(image, in: self.bounds, byTiling: false)
+        viewCtx.draw(image, in: rect, byTiling: false)
     }
 }
