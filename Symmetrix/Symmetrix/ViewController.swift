@@ -14,6 +14,10 @@ class ViewController: UIViewController {
         view.clear()
     }
     
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

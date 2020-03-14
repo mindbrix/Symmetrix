@@ -22,11 +22,21 @@
                                     <action selector="clearButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rAX-ic-jI9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxr-dE-wa2">
+                                <rect key="frame" x="360" y="832" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UqS-aB-F2Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="W7q-sF-oY4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7nK-3r-Id3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Oxr-dE-wa2" secondAttribute="trailing" constant="20" id="ASc-NU-rPZ"/>
                             <constraint firstItem="W7q-sF-oY4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="EBR-9t-XOw"/>
+                            <constraint firstItem="Oxr-dE-wa2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W7q-sF-oY4" secondAttribute="trailing" constant="8" symbolic="YES" id="pI5-Cp-IBn"/>
+                            <constraint firstItem="Oxr-dE-wa2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="rL4-XK-NmL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W7q-sF-oY4" secondAttribute="trailing" symbolic="YES" id="tnQ-1J-fJL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
