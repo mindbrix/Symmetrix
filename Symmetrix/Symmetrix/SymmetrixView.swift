@@ -50,9 +50,7 @@ class SymmetrixView: UIView {
     }
     
     func getImage() -> UIImage? {
-        guard let ctx = bitmapCtx else { return  nil }
-        guard let image = ctx.makeImage() else { return nil }
-        
+        guard let ctx = bitmapCtx, let image = ctx.makeImage() else { return nil }
         return UIImage(cgImage: image)
     }
     func drawLine(startPoint: CGPoint, endPoint: CGPoint) {
