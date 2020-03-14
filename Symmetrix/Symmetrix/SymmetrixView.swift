@@ -62,7 +62,7 @@ class SymmetrixView: UIView {
         let centre = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         
         for t in 0 ... turns {
-            let angle = CGFloat(t) * CGFloat(M_PI * 2.0) / CGFloat(turns)
+            let angle = CGFloat(t) * CGFloat(.pi * 2.0) / CGFloat(turns)
             let rotation = CGAffineTransform(rotationAngle: angle)
             
             var m = CGAffineTransform(translationX: centre.x, y: centre.y)
