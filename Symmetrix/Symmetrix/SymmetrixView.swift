@@ -14,7 +14,7 @@ class SymmetrixView: UIView {
     var bitmapCtx: CGContext? = nil
     var lastPoint = CGPoint.zero
     let lineWidth: CGFloat = 1.0
-    let turns = 20
+    let turns = 4
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -59,7 +59,7 @@ class SymmetrixView: UIView {
         let inset = ceil(lineWidth * 0.5)
         let centre = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         
-        for t in 0 ... turns {
+        for t in 0 ..< turns {
             let angle = CGFloat(t) * CGFloat(.pi * 2.0) / CGFloat(turns)
             let rotation = CGAffineTransform(rotationAngle: angle)
             
