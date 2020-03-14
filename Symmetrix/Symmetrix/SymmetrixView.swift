@@ -29,7 +29,6 @@ class SymmetrixView: UIView {
         ctx.setLineCap(CGLineCap.round)
         ctx.setLineJoin(CGLineJoin.round)
         ctx.scaleBy(x: self.contentScaleFactor, y: self.contentScaleFactor)
-        ctx.concatenate(CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: self.bounds.size.height))
         ctx.setFillColor(UIColor.white.cgColor)
         ctx.fill(self.bounds)
         ctx.setStrokeColor(UIColor.black.cgColor)
@@ -100,7 +99,6 @@ class SymmetrixView: UIView {
         guard let ctx = bitmapCtx, let image = ctx.makeImage(), let viewCtx = UIGraphicsGetCurrentContext() else { return }
         viewCtx.setBlendMode(.copy)
         viewCtx.interpolationQuality = .none
-        viewCtx.concatenate(CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: self.bounds.size.height))
         viewCtx.draw(image, in: rect, byTiling: false)
     }
 }
