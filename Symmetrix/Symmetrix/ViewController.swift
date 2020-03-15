@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     @IBAction func clearButtonTapped(_ sender: UIButton) {
         guard let view = self.view as? SymmetrixView else { return }
         view.clear()
@@ -20,7 +22,8 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        clearButton.layer.cornerRadius = 8
+        saveButton.layer.cornerRadius = 8
     }
 
 
