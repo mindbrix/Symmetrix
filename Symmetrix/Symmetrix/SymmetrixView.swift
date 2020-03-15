@@ -18,27 +18,18 @@ class SymmetrixView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        guard let ctx = createBitmapContext() else { return }
-        bitmapCtx = ctx
-        initialiseContext(ctx)
-    }
-    
-    
-    func initialiseContext(_ ctx: CGContext) {
+        let width = Int(ceil(self.bounds.size.width * self.contentScaleFactor))
+        let height = Int(ceil(self.bounds.size.height * self.contentScaleFactor))
+        let RGB = CGColorSpaceCreateDeviceRGB()
+        let BGRA = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue | CGBitmapInfo.byteOrder32Little.rawValue)
+        guard let ctx = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width * 4, space: RGB, bitmapInfo: BGRA.rawValue) else { return }
         ctx.setLineCap(CGLineCap.round)
         ctx.setLineJoin(CGLineJoin.round)
         ctx.scaleBy(x: self.contentScaleFactor, y: self.contentScaleFactor)
         ctx.setFillColor(UIColor.white.cgColor)
         ctx.fill(self.bounds)
         ctx.setStrokeColor(UIColor.black.cgColor)
-    }
-    
-    func createBitmapContext() -> CGContext? {
-        let width = Int(ceil(self.bounds.size.width * self.contentScaleFactor))
-        let height = Int(ceil(self.bounds.size.height * self.contentScaleFactor))
-        let RGB = CGColorSpaceCreateDeviceRGB()
-        let BGRA = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue | CGBitmapInfo.byteOrder32Little.rawValue)
-        return CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width * 4, space: RGB, bitmapInfo: BGRA.rawValue)
+        bitmapCtx = ctx
     }
     
     func clear() {
@@ -59,7 +50,7 @@ class SymmetrixView: UIView {
         let centre = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         
         for t in 0 ..< turns {
-            let angle = CGFloat(t) * CGFloat(.pi * 2.0) / CGFloat(turns)
+            let angle = CGFloat(t) / CGFloat(turns) * CGFloat(.pi * 2.0)
             let rotation = CGAffineTransform(rotationAngle: angle)
             
             var m = CGAffineTransform(translationX: centre.x, y: centre.y)
@@ -79,7 +70,6 @@ class SymmetrixView: UIView {
             let dirtyRect = CGRect(origin:origin, size:size).insetBy(dx: -inset, dy: -inset)
             setNeedsDisplay(dirtyRect)
         }
-        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
