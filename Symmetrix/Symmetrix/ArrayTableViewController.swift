@@ -33,6 +33,9 @@ class ArrayChoiceTableViewController<Element> : UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        if let color = values[indexPath.row] as? UIColor {
+            cell.backgroundColor = color
+        }
         cell.textLabel?.text = labels(values[indexPath.row])
         return cell
     }

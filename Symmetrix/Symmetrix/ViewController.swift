@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         guard let view = self.view as? SymmetrixView else { return }
         
         let items:[UIColor] = [UIColor.black, UIColor.red, UIColor.green, UIColor.blue]
-        let controller = ArrayChoiceTableViewController(items) { (value) in
+        let controller = ArrayChoiceTableViewController(items, labels: { value in "" }) { value in
             view.lineColor = value
         }
         presentPopover(controller, sender: sender)
