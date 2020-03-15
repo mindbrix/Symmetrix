@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     @IBAction func clearButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
         view.clear()
@@ -16,6 +16,15 @@ class ViewController: UIViewController {
     @IBAction func tipButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
         view.lineWidth = view.lineWidth == 2.0 ? 8.0 : 2.0
+        
+        let controller = UIViewController()
+        controller.modalPresentationStyle = .popover
+        controller.preferredContentSize = CGSize(width: 300, height: 200)
+        let presentationController = controller.presentationController as! UIPopoverPresentationController
+        presentationController.delegate = self
+        presentationController.barButtonItem = sender
+        presentationController.permittedArrowDirections = [.down, .up]
+        self.present(controller, animated: true)
     }
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
@@ -23,6 +32,10 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }
 
