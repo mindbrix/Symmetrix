@@ -14,6 +14,7 @@
 		E920591423DEEFB4009B7FAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E920591323DEEFB4009B7FAD /* Assets.xcassets */; };
 		E920591723DEEFB4009B7FAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E920591523DEEFB4009B7FAD /* LaunchScreen.storyboard */; };
 		E920591F23DEF03E009B7FAD /* SymmetrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920591E23DEF03E009B7FAD /* SymmetrixView.swift */; };
+		E99AA791241E9CC100901EAE /* ArrayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA790241E9CC100901EAE /* ArrayTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E920591623DEEFB4009B7FAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E920591823DEEFB4009B7FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E920591E23DEF03E009B7FAD /* SymmetrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymmetrixView.swift; sourceTree = "<group>"; };
+		E99AA790241E9CC100901EAE /* ArrayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				E920590A23DEEFB3009B7FAD /* AppDelegate.swift */,
 				E920590C23DEEFB3009B7FAD /* SceneDelegate.swift */,
+				E99AA790241E9CC100901EAE /* ArrayTableViewController.swift */,
 				E920590E23DEEFB3009B7FAD /* ViewController.swift */,
 				E920591E23DEF03E009B7FAD /* SymmetrixView.swift */,
 				E920591023DEEFB3009B7FAD /* Main.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E920590F23DEEFB3009B7FAD /* ViewController.swift in Sources */,
+				E99AA791241E9CC100901EAE /* ArrayTableViewController.swift in Sources */,
 				E920590B23DEEFB3009B7FAD /* AppDelegate.swift in Sources */,
 				E920590D23DEEFB3009B7FAD /* SceneDelegate.swift in Sources */,
 				E920591F23DEF03E009B7FAD /* SymmetrixView.swift in Sources */,
