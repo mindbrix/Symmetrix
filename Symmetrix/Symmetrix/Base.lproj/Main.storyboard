@@ -15,46 +15,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7q-sF-oY4">
-                                <rect key="frame" x="20" y="832" width="44" height="30"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" Clear ">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="clearButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rAX-ic-jI9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxr-dE-wa2">
-                                <rect key="frame" x="352" y="832" width="42" height="30"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" Save ">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UqS-aB-F2Z"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GdO-Mo-RDe">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Clear" image="trash" catalog="system" id="bP6-br-JNQ">
+                                        <connections>
+                                            <action selector="clearButtonTapped:" destination="BYZ-38-t0r" id="5zD-Fc-7ke"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PQ5-Tf-Lc1"/>
+                                    <barButtonItem title="Save" image="folder" catalog="system" id="eUV-Sa-Sbx">
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="BYZ-38-t0r" id="iOl-KC-eWt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="W7q-sF-oY4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7nK-3r-Id3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Oxr-dE-wa2" secondAttribute="trailing" constant="20" id="ASc-NU-rPZ"/>
-                            <constraint firstItem="W7q-sF-oY4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="EBR-9t-XOw"/>
-                            <constraint firstItem="Oxr-dE-wa2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W7q-sF-oY4" secondAttribute="trailing" constant="8" symbolic="YES" id="pI5-Cp-IBn"/>
-                            <constraint firstItem="Oxr-dE-wa2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="rL4-XK-NmL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W7q-sF-oY4" secondAttribute="trailing" symbolic="YES" id="tnQ-1J-fJL"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="clearButton" destination="W7q-sF-oY4" id="vlY-zX-PHQ"/>
-                        <outlet property="saveButton" destination="Oxr-dE-wa2" id="07M-CP-UUk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="130"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="folder" catalog="system" width="64" height="46"/>
+        <image name="trash" catalog="system" width="60" height="64"/>
+    </resources>
 </document>

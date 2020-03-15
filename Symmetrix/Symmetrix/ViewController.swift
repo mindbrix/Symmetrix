@@ -9,23 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var clearButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBAction func clearButtonTapped(_ sender: UIButton) {
+    @IBAction func clearButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
         view.clear()
     }
-    
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        clearButton.layer.cornerRadius = 8
-        saveButton.layer.cornerRadius = 8
     }
-
-
 }
 
