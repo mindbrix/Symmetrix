@@ -11,26 +11,23 @@ import CoreGraphics
 
 class SymmetrixView: UIView {
     
-    var bitmapCtx: CGContext? = nil
-    var lastPoint = CGPoint.zero
-    var lineWidth: CGFloat = 8.0
-    var lineColor = UIColor.black
-    var turns = 16
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    lazy var bitmapCtx: CGContext? = {
         let width = Int(ceil(self.bounds.size.width * self.contentScaleFactor))
         let height = Int(ceil(self.bounds.size.height * self.contentScaleFactor))
         let RGB = CGColorSpaceCreateDeviceRGB()
         let BGRA = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue | CGBitmapInfo.byteOrder32Little.rawValue)
-        guard let ctx = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width * 4, space: RGB, bitmapInfo: BGRA.rawValue) else { return }
+        guard let ctx = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width * 4, space: RGB, bitmapInfo: BGRA.rawValue) else { return nil }
         ctx.setLineCap(CGLineCap.round)
         ctx.setLineJoin(CGLineJoin.round)
         ctx.scaleBy(x: self.contentScaleFactor, y: self.contentScaleFactor)
         ctx.setFillColor(UIColor.white.cgColor)
         ctx.fill(self.bounds)
-        bitmapCtx = ctx
-    }
+        return ctx
+    }()
+    var lastPoint = CGPoint.zero
+    var lineWidth: CGFloat = 8.0
+    var lineColor = UIColor.black
+    var turns = 16
     
     func clear() {
         guard let ctx = bitmapCtx else { return }
