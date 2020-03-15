@@ -13,6 +13,15 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         guard let view = self.view as? SymmetrixView else { return }
         view.clear()
     }
+    @IBAction func colorButtonTapped(_ sender: UIBarButtonItem) {
+        guard let view = self.view as? SymmetrixView else { return }
+        
+        let items:[UIColor] = [UIColor.black, UIColor.red, UIColor.green, UIColor.blue]
+        let controller = ArrayChoiceTableViewController(items) { (value) in
+            view.lineColor = value
+        }
+        presentPopover(controller, sender: sender)
+    }
     @IBAction func tipButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
         
@@ -20,13 +29,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         let controller = ArrayChoiceTableViewController(items, labels: { "\($0)" + ($0 == view.lineWidth ? "*" : "") }) { (value) in
             view.lineWidth = value
         }
-        controller.modalPresentationStyle = .popover
-        controller.preferredContentSize = CGSize(width: 300, height: 200)
-        let presentationController = controller.presentationController as! UIPopoverPresentationController
-        presentationController.delegate = self
-        presentationController.barButtonItem = sender
-        presentationController.permittedArrowDirections = [.down, .up]
-        self.present(controller, animated: true)
+         presentPopover(controller, sender: sender)
     }
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
@@ -34,6 +37,16 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func presentPopover(_ controller: UIViewController, sender: UIBarButtonItem) {
+        controller.modalPresentationStyle = .popover
+        controller.preferredContentSize = CGSize(width: 300, height: 200)
+        let presentationController = controller.presentationController as! UIPopoverPresentationController
+        presentationController.delegate = self
+        presentationController.barButtonItem = sender
+        presentationController.permittedArrowDirections = [.down, .up]
+        self.present(controller, animated: true)
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {

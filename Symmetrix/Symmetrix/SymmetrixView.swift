@@ -14,6 +14,7 @@ class SymmetrixView: UIView {
     var bitmapCtx: CGContext? = nil
     var lastPoint = CGPoint.zero
     var lineWidth: CGFloat = 8.0
+    var lineColor = UIColor.black
     let turns = 20
     
     required init?(coder: NSCoder) {
@@ -28,7 +29,6 @@ class SymmetrixView: UIView {
         ctx.scaleBy(x: self.contentScaleFactor, y: self.contentScaleFactor)
         ctx.setFillColor(UIColor.white.cgColor)
         ctx.fill(self.bounds)
-        ctx.setStrokeColor(UIColor.black.cgColor)
         bitmapCtx = ctx
     }
     
@@ -46,6 +46,8 @@ class SymmetrixView: UIView {
         guard let ctx = bitmapCtx else { return }
         
         ctx.setLineWidth(lineWidth)
+        ctx.setStrokeColor(lineColor.cgColor)
+        
         let inset = ceil(lineWidth * 0.5)
         let centre = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         
