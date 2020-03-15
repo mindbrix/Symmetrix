@@ -29,7 +29,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         let controller = ArrayChoiceTableViewController(items, labels: { "\($0)" + ($0 == view.lineWidth ? "*" : "") }) { (value) in
             view.lineWidth = value
         }
-         presentPopover(controller, sender: sender)
+        presentPopover(controller, sender: sender)
     }
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
@@ -40,6 +40,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
     }
     
     func presentPopover(_ controller: UIViewController, sender: UIBarButtonItem) {
+        self.dismiss(animated: false)
         controller.modalPresentationStyle = .popover
         controller.preferredContentSize = CGSize(width: 300, height: 200)
         let presentationController = controller.presentationController as! UIPopoverPresentationController
