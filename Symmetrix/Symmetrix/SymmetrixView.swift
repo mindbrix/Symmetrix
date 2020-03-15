@@ -15,7 +15,7 @@ class SymmetrixView: UIView {
     var lastPoint = CGPoint.zero
     var lineWidth: CGFloat = 8.0
     var lineColor = UIColor.black
-    let turns = 20
+    var turns = 16
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

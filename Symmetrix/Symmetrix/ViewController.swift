@@ -31,6 +31,15 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         }
         presentPopover(controller, sender: sender)
     }
+    @IBAction func turnButtonTapped(_ sender: UIBarButtonItem) {
+        guard let view = self.view as? SymmetrixView else { return }
+        
+        let items:[Int] = [4, 8, 16, 32 ]
+        let controller = ArrayChoiceTableViewController(items, labels: { "\($0)" + ($0 == view.turns ? "*" : "") }) { (value) in
+            view.turns = value
+        }
+        presentPopover(controller, sender: sender)
+    }
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
