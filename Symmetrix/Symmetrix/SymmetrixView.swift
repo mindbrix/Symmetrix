@@ -13,7 +13,7 @@ class SymmetrixView: UIView {
     
     var bitmapCtx: CGContext? = nil
     var lastPoint = CGPoint.zero
-    var lineWidth: CGFloat = 1.0
+    var lineWidth: CGFloat = 8.0
     let turns = 20
     
     required init?(coder: NSCoder) {

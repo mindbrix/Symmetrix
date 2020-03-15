@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     }
     @IBAction func tipButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
-        view.lineWidth = view.lineWidth == 1.0 ? 10.0 : 1.0
+        view.lineWidth = view.lineWidth == 2.0 ? 8.0 : 2.0
     }
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
