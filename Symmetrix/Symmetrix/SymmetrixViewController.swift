@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class SymmetrixViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     // MARK: - Main.storyboard
     
     @IBAction func clearButtonTapped(_ sender: UIBarButtonItem) {
