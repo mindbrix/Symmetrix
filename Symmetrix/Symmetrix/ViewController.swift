@@ -13,6 +13,10 @@ class ViewController: UIViewController {
         guard let view = self.view as? SymmetrixView else { return }
         view.clear()
     }
+    @IBAction func tipButtonTapped(_ sender: UIBarButtonItem) {
+        guard let view = self.view as? SymmetrixView else { return }
+        view.lineWidth = view.lineWidth == 1.0 ? 10.0 : 1.0
+    }
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)

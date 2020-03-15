@@ -13,7 +13,7 @@ class SymmetrixView: UIView {
     
     var bitmapCtx: CGContext? = nil
     var lastPoint = CGPoint.zero
-    let lineWidth: CGFloat = 1.0
+    var lineWidth: CGFloat = 1.0
     let turns = 20
     
     required init?(coder: NSCoder) {
@@ -25,7 +25,6 @@ class SymmetrixView: UIView {
     
     
     func initialiseContext(_ ctx: CGContext) {
-        ctx.setLineWidth(lineWidth)
         ctx.setLineCap(CGLineCap.round)
         ctx.setLineJoin(CGLineJoin.round)
         ctx.scaleBy(x: self.contentScaleFactor, y: self.contentScaleFactor)
@@ -55,6 +54,7 @@ class SymmetrixView: UIView {
     func drawLine(startPoint: CGPoint, endPoint: CGPoint) {
         guard let ctx = bitmapCtx else { return }
         
+        ctx.setLineWidth(lineWidth)
         let inset = ceil(lineWidth * 0.5)
         let centre = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         

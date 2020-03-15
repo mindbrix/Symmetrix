@@ -24,6 +24,12 @@
                                             <action selector="clearButtonTapped:" destination="BYZ-38-t0r" id="5zD-Fc-7ke"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="TNU-JB-GpC"/>
+                                    <barButtonItem title="Tip" image="pencil.tip" catalog="system" id="ehx-MG-nEN">
+                                        <connections>
+                                            <action selector="tipButtonTapped:" destination="BYZ-38-t0r" id="qtR-9r-0nF"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PQ5-Tf-Lc1"/>
                                     <barButtonItem title="Save" image="folder" catalog="system" id="eUV-Sa-Sbx">
                                         <connections>
@@ -44,6 +50,7 @@
     </scenes>
     <resources>
         <image name="folder" catalog="system" width="64" height="46"/>
+        <image name="pencil.tip" catalog="system" width="48" height="64"/>
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
 </document>
