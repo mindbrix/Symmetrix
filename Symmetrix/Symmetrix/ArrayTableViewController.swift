@@ -1,5 +1,3 @@
-import Foundation
-
 // Copyright 2018, Ralf Ebert
 // License   https://opensource.org/licenses/MIT
 // License   https://creativecommons.org/publicdomain/zero/1.0/
