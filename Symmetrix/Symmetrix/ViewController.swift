@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+    // MARK: - Main.storyboard
+    
     @IBAction func clearButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
         view.clear()
@@ -44,9 +46,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    
+    // MARK: - Utility
     
     func presentPopover(_ controller: UIViewController, sender: UIBarButtonItem) {
         self.dismiss(animated: false)
@@ -59,6 +60,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         }
         self.present(controller, animated: true)
     }
+    
+    // MARK: - UIPopoverPresentationControllerDelegate
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
