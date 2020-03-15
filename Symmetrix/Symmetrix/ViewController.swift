@@ -52,10 +52,11 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         self.dismiss(animated: false)
         controller.modalPresentationStyle = .popover
         controller.preferredContentSize = CGSize(width: 300, height: 200)
-        let presentationController = controller.presentationController as! UIPopoverPresentationController
-        presentationController.delegate = self
-        presentationController.barButtonItem = sender
-        presentationController.permittedArrowDirections = [.down, .up]
+        if let presentationController = controller.popoverPresentationController {
+            presentationController.delegate = self
+            presentationController.barButtonItem = sender
+            presentationController.permittedArrowDirections = [.down, .up]
+        }
         self.present(controller, animated: true)
     }
     
