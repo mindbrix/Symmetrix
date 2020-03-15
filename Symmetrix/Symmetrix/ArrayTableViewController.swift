@@ -15,11 +15,13 @@ class ArrayChoiceTableViewController<Element> : UITableViewController {
     private let values : [Element]
     private let labels : LabelProvider
     private let onSelect : SelectionHandler?
+    private let header: String?
     
-    init(_ values : [Element], labels : @escaping LabelProvider = String.init(describing:), onSelect : SelectionHandler? = nil) {
+    init(_ values : [Element], header: String? = nil, labels : @escaping LabelProvider = String.init(describing:), onSelect : SelectionHandler? = nil) {
         self.values = values
         self.onSelect = onSelect
         self.labels = labels
+        self.header = header
         super.init(style: .plain)
     }
     
@@ -29,6 +31,10 @@ class ArrayChoiceTableViewController<Element> : UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return values.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.header
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
