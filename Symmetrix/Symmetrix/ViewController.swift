@@ -16,9 +16,9 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
     @IBAction func tipButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
         
-        let items = ["2.0", "4.0", "6.0", "8.0"]
-        let controller = ArrayChoiceTableViewController(items) { (name) in
-            view.lineWidth = CGFloat((name as NSString).doubleValue)
+        let items:[CGFloat] = [2.0, 4.0, 6.0, 8.0]
+        let controller = ArrayChoiceTableViewController(items, labels: { "\($0)" + ($0 == view.lineWidth ? "*" : "") }) { (value) in
+            view.lineWidth = value
         }
         controller.modalPresentationStyle = .popover
         controller.preferredContentSize = CGSize(width: 300, height: 200)
