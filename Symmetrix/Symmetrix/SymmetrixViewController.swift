@@ -12,6 +12,7 @@ class SymmetrixViewController: UIViewController, UIPopoverPresentationController
     // MARK: - Main.storyboard
     
     @IBOutlet weak var drawSomethingLabel: UILabel!
+    @IBOutlet weak var savedLabel: UILabel!
     
     @IBAction func clearButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
@@ -47,6 +48,13 @@ class SymmetrixViewController: UIViewController, UIPopoverPresentationController
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        savedLabel.isHidden = false
+        savedLabel.alpha = 1.0
+        UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
+            self.savedLabel.alpha = 0.0
+        }) { _ in
+            self.savedLabel.isHidden = true
+        }
     }
     
     // MARK: - UIViewController

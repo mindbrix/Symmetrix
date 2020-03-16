@@ -62,19 +62,29 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Saved to camera roll " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWm-Xv-0no">
+                                <rect key="frame" x="97" y="744" width="220" height="29"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="UBa-AL-9jd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Jvh-am-GY8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GdO-Mo-RDe" secondAttribute="bottom" id="S3P-ub-fW0"/>
                             <constraint firstItem="GdO-Mo-RDe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UBH-wS-rWt"/>
+                            <constraint firstItem="EWm-Xv-0no" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cl4-Vc-Kpe"/>
                             <constraint firstItem="UBa-AL-9jd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eag-F8-Dyh"/>
                             <constraint firstAttribute="trailing" secondItem="GdO-Mo-RDe" secondAttribute="trailing" id="iTP-86-EHB"/>
+                            <constraint firstItem="GdO-Mo-RDe" firstAttribute="top" secondItem="EWm-Xv-0no" secondAttribute="bottom" constant="40" id="sv8-1D-bGk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="drawSomethingLabel" destination="UBa-AL-9jd" id="Goa-RV-J1y"/>
+                        <outlet property="savedLabel" destination="EWm-Xv-0no" id="d93-lb-DoM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
