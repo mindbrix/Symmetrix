@@ -15,9 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="GdO-Mo-RDe">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="GdO-Mo-RDe">
                                 <rect key="frame" x="0.0" y="852" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Bec-tU-p0d"/>
                                     <barButtonItem title="Clear" image="trash" catalog="system" id="bP6-br-JNQ">
@@ -59,6 +58,11 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GdO-Mo-RDe" secondAttribute="bottom" id="S3P-ub-fW0"/>
+                            <constraint firstItem="GdO-Mo-RDe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UBH-wS-rWt"/>
+                            <constraint firstAttribute="trailing" secondItem="GdO-Mo-RDe" secondAttribute="trailing" id="iTP-86-EHB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

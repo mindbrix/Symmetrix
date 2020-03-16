@@ -37,7 +37,7 @@ class SymmetrixViewController: UIViewController, UIPopoverPresentationController
         guard let view = self.view as? SymmetrixView else { return }
         
         let items:[Int] = [4, 8, 16, 32 ]
-        let controller = ArrayChoiceTableViewController(items, header: "Copies", labels: { "\($0)" + ($0 == view.turns ? "*" : "") }) { (value) in
+        let controller = ArrayChoiceTableViewController(items, header: "Symmetry", labels: { "\($0)" + ($0 == view.turns ? "*" : "") }) { (value) in
             view.turns = value
         }
         presentPopover(controller, sender: sender)
