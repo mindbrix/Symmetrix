@@ -30,7 +30,7 @@ class SymmetrixViewController: UIViewController, UIPopoverPresentationController
         guard let view = self.view as? SymmetrixView else { return }
         
         let items:[CGFloat] = [2.0, 4.0, 8.0, 16.0]
-        let controller = ArrayChoiceTableViewController(items, header: "Line width", labels: { "\($0)" + ($0 == view.lineWidth ? "*" : "") }) { (value) in
+        let controller = ArrayChoiceTableViewController(items, header: "Line width", labels: { "\($0) points" + ($0 == view.lineWidth ? "*" : "") }) { (value) in
             view.lineWidth = value
         }
         presentPopover(controller, sender: sender)
@@ -39,7 +39,7 @@ class SymmetrixViewController: UIViewController, UIPopoverPresentationController
         guard let view = self.view as? SymmetrixView else { return }
         
         let items:[Int] = [4, 8, 16, 32 ]
-        let controller = ArrayChoiceTableViewController(items, header: "Symmetry", labels: { "\($0)" + ($0 == view.turns ? "*" : "") }) { (value) in
+        let controller = ArrayChoiceTableViewController(items, header: "Symmetry", labels: { "\($0)x" + ($0 == view.turns ? "*" : "") }) { (value) in
             view.turns = value
         }
         presentPopover(controller, sender: sender)
