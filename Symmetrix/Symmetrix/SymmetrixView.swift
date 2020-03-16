@@ -10,7 +10,7 @@ import UIKit
 import CoreGraphics
 
 class SymmetrixView: UIView {
-    
+    static let viewWasTouched = "viewWasTouched"
     lazy var bitmapCtx: CGContext? = {
         let width = Int(ceil(self.bounds.size.width * self.contentScaleFactor))
         let height = Int(ceil(self.bounds.size.height * self.contentScaleFactor))
@@ -72,6 +72,8 @@ class SymmetrixView: UIView {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        NotificationCenter.default.post(name: Notification.Name(SymmetrixView.viewWasTouched), object: nil)
+        
         lastPoint = touches.first!.location(in: self)
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

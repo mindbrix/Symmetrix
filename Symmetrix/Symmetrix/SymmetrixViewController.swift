@@ -11,6 +11,8 @@ import UIKit
 class SymmetrixViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     // MARK: - Main.storyboard
     
+    @IBOutlet weak var drawSomethingLabel: UILabel!
+    
     @IBAction func clearButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
         view.clear()
@@ -45,6 +47,17 @@ class SymmetrixViewController: UIViewController, UIPopoverPresentationController
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView, let image = view.getImage() else { return }
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
+    
+    // MARK: - UIViewController
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWasTouched), name: Notification.Name(SymmetrixView.viewWasTouched), object: nil)
+    }
+    @objc func viewWasTouched(notification: NSNotification) {
+        self.drawSomethingLabel.isHidden = true
     }
     
     // MARK: - Utility

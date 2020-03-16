@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="GdO-Mo-RDe">
-                                <rect key="frame" x="0.0" y="852" width="414" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="GdO-Mo-RDe">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Bec-tU-p0d"/>
                                     <barButtonItem title="Clear" image="trash" catalog="system" id="bP6-br-JNQ">
@@ -56,15 +56,26 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PQ5-Tf-Lc1"/>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Draw something!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBa-AL-9jd">
+                                <rect key="frame" x="119" y="433.5" width="176" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="UBa-AL-9jd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Jvh-am-GY8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GdO-Mo-RDe" secondAttribute="bottom" id="S3P-ub-fW0"/>
                             <constraint firstItem="GdO-Mo-RDe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UBH-wS-rWt"/>
+                            <constraint firstItem="UBa-AL-9jd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eag-F8-Dyh"/>
                             <constraint firstAttribute="trailing" secondItem="GdO-Mo-RDe" secondAttribute="trailing" id="iTP-86-EHB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="drawSomethingLabel" destination="UBa-AL-9jd" id="Goa-RV-J1y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
