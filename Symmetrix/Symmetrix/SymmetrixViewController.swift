@@ -21,7 +21,7 @@ class SymmetrixViewController: UIViewController, UIPopoverPresentationController
     @IBAction func colorButtonTapped(_ sender: UIBarButtonItem) {
         guard let view = self.view as? SymmetrixView else { return }
         
-        let items:[UIColor] = [UIColor.black, UIColor.darkGray, UIColor.lightGray, UIColor.red, UIColor.blue]
+        let items:[UIColor] = [UIColor(white: 0.0, alpha: 1.0), UIColor(white: 0.25, alpha: 1.0), UIColor(white: 0.5, alpha: 1.0), UIColor(white: 0.75, alpha: 1.0), UIColor.red]
         let controller = ArrayChoiceTableViewController(items, header: "Line color", labels: { value in "" }) { value in
             view.lineColor = value
         }
