@@ -25,7 +25,7 @@ class SymmetrixView: UIView {
         return ctx
     }()
     var lastPoint = CGPoint.zero
-    var lineWidth: CGFloat = 8.0
+    var lineWidth: CGFloat = 4.0
     var lineColor = UIColor.black
     var turns = 16
     
