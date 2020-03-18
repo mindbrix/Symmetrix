@@ -1,2 +1,4 @@
 # Symmetrix
-Symmetrical drawing app for iOS
+Symmetrical Swift drawing app for iOS
+
+![Demo](/myVideo.gif)
